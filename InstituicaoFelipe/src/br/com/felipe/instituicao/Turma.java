@@ -5,21 +5,13 @@ import java.util.ArrayList;
 public class Turma {
     private int Codigo;
     private String Descricao;
-    private Aluno tmpAluno;
-    private Turma turma;
-    
+ 
     ArrayList<Aluno> alunos = new ArrayList<>();
             
     public Turma(int Codigo, String Descricao) {
         this.Codigo = Codigo;
         this.Descricao = Descricao;
     }
-       
-    Aluno aluno = new Aluno(1, "Felipe Mozer",7.0f,7.0f,turma);
-    Aluno aluno1 = new Aluno(2, "Brizola",8.0f,2.0f,turma);
-    //Aluno aluno2 = new Aluno(3, "Ana");
-    //Aluno aluno3 = new Aluno(4, "Debora");
-
 
     public int getCodigo() {
         return Codigo;
@@ -42,15 +34,42 @@ public class Turma {
     }
     
     public int quantidadeAlunosAprovados(){                
-        /*float media = tmpAluno.Media();
-        int quantidadeAprovado =0,quantidadeReprovado=0;
-        if (media >= 7){
-           return quantidadeAprovado++;
-            
-        }else{
-            System.out.println("\nAlunos reprovados :"+quantidadeReprovado);// QTD DE ALUNOS REPROVADOS  
-            return quantidadeReprovado++;
-        }*/
+        int quantAprovados = 0;
+        for(Aluno tmpAlunos : alunos){
+            if (tmpAlunos.Media() >= 7){
+                return quantAprovados++;
+            }
+        }
         return 0;
-    }    
+    }
+    
+    public int quantidadeAlunosReprovados(){                
+        int quantReprovados = 0;
+        for(Aluno tmpAlunos : alunos){
+            if (tmpAlunos.Media() < 7){
+                return quantReprovados++;
+            }
+        }
+        return 0;
+    }
+    
+    public float porcAlunosAprovados(){
+        return((quantidadeAlunosAprovados() / alunos.size()) * 100);
+    }
+    
+    public float porcAlunosReprovados(){
+        return((quantidadeAlunosReprovados() / alunos.size()) * 100);
+    }
+    
+    public void matricula(Aluno aluno){
+        aluno.setTurma(this);
+    }
+    
+    public void cancelarMatricula(Aluno aluno){
+        aluno.getTurma();
+    }
+    
+    public float mediaGeral(){
+        return 0;
+    }
 }

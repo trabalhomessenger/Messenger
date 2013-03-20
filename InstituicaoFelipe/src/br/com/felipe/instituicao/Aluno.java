@@ -6,12 +6,9 @@ public class Aluno {
     public float NotaG1,NotaG2;
     public Turma turma;
 
-    public Aluno(int RA, String Nome, float NotaG1, float NotaG2, Turma turma) {
+    public Aluno(int RA, String Nome) {
         this.RA = RA;
         this.Nome = Nome;
-        this.NotaG1 = NotaG1;
-        this.NotaG2 = NotaG2;
-        this.turma = turma;
     }
 
     @Override
@@ -66,6 +63,14 @@ public class Aluno {
 
     public float getNotaG2() {
         return NotaG2;
+    }
+
+    public Turma getTurma() {
+        return turma;
+    }
+
+    public void setTurma(Turma turma) {
+        this.turma = turma;
     }
     
     public float Media(){
