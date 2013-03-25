@@ -8,6 +8,11 @@ public class Turma {
  
     ArrayList<Aluno> alunos = new ArrayList<>();
             
+    Aluno aluno = new Aluno(1, "Felipe Mozer");
+    Aluno aluno1 = new Aluno(2, "Brizola");
+    //Aluno aluno2 = new Aluno(3, "Ana");
+    //Aluno aluno3 = new Aluno(4, "Debora");
+    
     public Turma(int Codigo, String Descricao) {
         this.Codigo = Codigo;
         this.Descricao = Descricao;
