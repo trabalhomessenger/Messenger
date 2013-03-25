@@ -62,14 +62,21 @@ public class Turma {
     }
     
     public void matricula(Aluno aluno){
+        alunos.add(aluno);
         aluno.setTurma(this);
     }
     
     public void cancelarMatricula(Aluno aluno){
-        aluno.getTurma();
+        alunos.remove(aluno);
+        aluno.setTurma(null);
     }
     
     public float mediaGeral(){
-        return 0;
+        float mediaGeral=0;
+        int x;
+        for(x = 0;x < quantidadeAlunos();x++){
+            mediaGeral++;
+        }       
+        return(mediaGeral / quantidadeAlunos());
     }
 }
